@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--Axios--->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!--Bootstrap--->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <!--Google Fonts--->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap"
+      rel="stylesheet"
+    />
+    <!--Fontawesome--->
+    <script
+      src="https://kit.fontawesome.com/95fe404543.js"
+      crossorigin="anonymous"
+    ></script>
+    <!--Link to CSS Stylesheet--->
+    <link rel="stylesheet" href="src/styles.css" />
+
+    <title>CloudyOrSunnyToday?</title>
+  </head>
+  <body>
+    <!--Container wrapping all the content--->
+
+    <div class="container mt-5 px-0" style="width: 768px">
+      <!--Outer card--->
+
+      <div class="card">
+        <div class="card-body">
+          <!--Container for the display of locations, search and temperature--->
+
+          <div class="container location-temperature">
+            <!--Cities list--->
+
+            <div class="row cities-list mt-3">
+              <div class="col-sm">
+                <a href="#" id="bern">Bern</a>
+              </div>
+              <div class="col-sm">
+                <a href="#" id="zurich">Zürich</a>
+              </div>
+              <div class="col-sm">
+                <a href="#" id="geneve">Genève</a>
+              </div>
+              <div class="col-sm" id="lugano">
+                <a href="#">Lugano</a>
+              </div>
+              <div class="col-sm" id="basel">
+                <a href="#">Basel</a>
+              </div>
+              <div class="col-sm col-md-5"></div>
+            </div>
+
+            <!--Start of form for location search --->
+
+            <form class="mt-4" id="search-city-form">
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      placeholder="Search for city"
+                      class="form-control border border-5 rounded"
+                      id="city-input"
+                    />
+                  </div>
+                </div>
+                <div class="col">
+                  <input
+                    type="submit"
+                    class="btn btn-outline-secondary rounded-pill"
+                  />
+                  <span id="current-button"
+                    ><input
+                      type="submit"
+                      class="btn btn-outline-secondary rounded-pill"
+                      value="Current"
+                  /></span>
+                </div>
+              </div>
+            </form>
+
+            <!--Information on current location, day and current weather details--->
+
+            <div class="row mt-4">
+              <div class="col-sm-5 col-md-7 location-and-weather">
+                <div class="row">
+                  <div class="col-sm">
+                    <h1 id="show-city">Dübendorf</h1>
+                    <span class="align-bottom" id="show-country"
+                      ><h2>, Switzerland</h2></span
+                    >
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col">
+                    <h2 id="show-day-time">Wednesday, 10:31</h2>
+                  </div>
+                </div>
+
+                <div class="row mt-3">
+                  <div class="col">
+                    <span class="current-degrees" id="current-degrees"
+                      >11°</span
+                    >
+                    <small><a href="#" id="switch-temp">°C</a></small> &nbsp;
+                    <h2 id="weather-description">Partly Cloudy</h2>
+                  </div>
+                </div>
+
+                <small>
+                  <div class="row">
+                    <div class="col-md-4">Humidity:</div>
+                    <div class="col-md-8" id="humidity">7%</div>
+                  </div></small
+                >
+
+                <small
+                  ><div class="row">
+                    <div class="col-md-4">Wind:</div>
+                    <div class="col-md-8" id="wind-speed">5 km/h</div>
+                  </div></small
+                >
+              </div>
+
+              <div class="col mt-5 justify-self-center">
+                <div class="weather-icons-aligned">
+                  <i class="far fa-sun sun-icon overlay-sun main-icon"></i>
+                  <i
+                    class="fas fa-cloud cloud-icon overlay-cloud main-icon"
+                  ></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--Container start with previsions for next 5 days--->
+
+          <div class="container mt-3">
+            <div class="row">
+              <div class="col-12 col-md-2">
+                <div class="list-of-days">THU</div>
+                <div class="weather-icons-aligned">
+                  <i class="far fa-sun sun-icon overlay-sun"></i>
+                  <i class="fas fa-cloud cloud-icon overlay-cloud"></i>
+                </div>
+                <div class="list-of-temperature">14°</div>
+              </div>
+
+              <div class="col-12 col-md-2">
+                <div class="list-of-days">FRI</div>
+                <div class="weather-icons-aligned">
+                  <i class="fas fa-cloud-showers-heavy rain-icon"></i>
+                </div>
+                <div class="list-of-temperature">16°</div>
+              </div>
+
+              <div class="col-12 col-md-2">
+                <div class="list-of-days">SAT</div>
+                <div class="weather-icons-aligned">
+                  <i class="far fa-sun sun-icon overlay-sun"></i>
+                  <i class="fas fa-cloud cloud-icon overlay-cloud"></i>
+                </div>
+                <div class="list-of-temperature">16°</div>
+              </div>
+
+              <div class="col-12 col-md-2">
+                <div class="list-of-days">SUN</div>
+                <div class="weather-icons-aligned">
+                  <i class="far fa-sun sun-icon overlay-sun"></i>
+                  <i class="fas fa-cloud cloud-icon overlay-cloud"></i>
+                </div>
+                <div class="list-of-temperature">15°</div>
+              </div>
+
+              <div class="col-12 col-md-2">
+                <div class="list-of-days">MON</div>
+                <div class="weather-icons-aligned">
+                  <i class="far fa-sun sun-icon"></i>
+                </div>
+                <div class="list-of-temperature">16°</div>
+              </div>
+
+              <div class="col-12 col-md-2">
+                <div class="list-of-days">TUE</div>
+                <div class="weather-icons-aligned">
+                  <i class="far fa-sun sun-icon"></i>
+                </div>
+                <div class="list-of-temperature">18°</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/script.js"></script>
+  </body>
+</html>
