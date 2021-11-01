@@ -1,0 +1,85 @@
+body {
+    color: #5a6275;
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+  }
+  h1 {
+    color: #5a6275;
+    margin: 0;
+    display: inline;
+    font-weight: 300;
+    font-size: 40px;
+  }
+  
+  h2 {
+    color: #5a6275;
+    font-size: 20px;
+    margin: 0;
+    display: inline;
+    font-weight: 200;
+  }
+  
+  a {
+    text-decoration: underline;
+    color: #5a6275;
+  }
+  
+  a:hover {
+    color: #ffca7d;
+  }
+  
+  .cities-list {
+    font-size: smaller;
+  }
+  
+  .current-degrees {
+    color: #5a6275;
+    font-weight: 300;
+    font-size: 40px;
+  }
+  
+  .sun-icon {
+    color: #ffca7d;
+    font-size: 30px;
+  }
+  
+  .cloud-icon {
+    color: #939aa9;
+    font-size: 30px;
+  }
+  
+  .main-icon {
+    font-size: 80px;
+  }
+  
+  .rain-icon {
+    color: #939aa9;
+    font-size: 30px;
+  }
+  
+  .weather-icons-aligned {
+    text-align: center;
+  }
+  
+  .weather-icons-aligned .overlay-sun {
+    position: relative;
+    left: 15px;
+    top: -10px;
+  }
+  
+  .weather-icons-aligned .overlay-cloud {
+    position: relative;
+    left: -5px;
+  }
+  
+  .list-of-days {
+    margin-top: 25px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .list-of-temperature {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
