@@ -20,12 +20,12 @@ body {
   }
   
   a {
-    text-decoration: underline;
-    color: #5a6275;
+    text-decoration: none;
+    color: #ffca7d;
   }
   
   a:hover {
-    color: #ffca7d;
+    color: #5a6275;
   }
   
   .cities-list {
