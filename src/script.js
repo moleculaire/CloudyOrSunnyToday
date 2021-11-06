@@ -27,7 +27,7 @@ function formatDateTime(date) {
 formatDateTime(new Date());
 
 // Feature 3 Display a fake temperature (i.e 17) in Celsius and add a link to convert it to Fahrenheit. When clicking on it, it should convert the temperature to Fahrenheit.
-
+/*
 function switchTemperature(event) {
   event.preventDefault();
   let link = document.querySelector("#switch-temp");
@@ -43,6 +43,7 @@ function switchTemperature(event) {
 
 let TemperatureLink = document.querySelector("#switch-temp");
 TemperatureLink.addEventListener("click", switchTemperature);
+*/
 
 // Get City input
 function searchCity(event) {
@@ -65,37 +66,26 @@ function getWeatherData(city) {
 // Getting city and temperature from response and replacing values in HTML
 function showTemperature(response) {
   //console.log(response); => check what we get back
+  // selecting Elements from HTML
+  let city = document.querySelector("#show-city");
+  let country = document.querySelector("#show-country");
+  let temperature = document.querySelector("#current-degrees");
+  let description = document.querySelector("#weather-description");
+  let humidity = document.querySelector("#humidity");
+  let wind = document.querySelector("#wind-speed");
 
-  // set temperature and location with data from API
-  let temperature = Math.round(response.data.main.temp);
-  let city = response.data.name;
-  let country = response.data.sys.country;
-  // convert country abbreviation to full country name
+  // convert country abbreviation to full name passing in values from API
   let intlName = new Intl.DisplayNames(["en"], { type: "region" });
-  let fullCountry = intlName.of(`${country}`);
+  let fullCountry = intlName.of(response.data.sys.country);
+  // end convert country abbrevation
 
-  let displayCity = document.querySelector("#show-city");
-  displayCity.innerText = `${city}`;
-
-  let displayCountry = document.querySelector("#show-country");
-  displayCountry.innerText = `, ${fullCountry}`;
-
-  let currentCelsius = document.querySelector("#current-degrees");
-  currentCelsius.innerText = `${temperature}`;
-
-  // set weather description, humidity and wind with data from API
-  let description = response.data.weather[0].description;
-  let humidity = response.data.main.humidity;
-  let wind = response.data.wind.speed;
-
-  let displayDescription = document.querySelector("#weather-description");
-  displayDescription.innerText = `${description}`;
-
-  let displayHumidity = document.querySelector("#humidity");
-  displayHumidity.innerText = `${humidity}%`;
-
-  let windSpeed = document.querySelector("#wind-speed");
-  windSpeed.innerText = `${wind} km/h`;
+  // replacing content with information from API on selected elements
+  city.innerText = response.data.name;
+  country.innerText = `, ${fullCountry}`;
+  temperature.innerText = Math.round(response.data.main.temp);
+  description.innerText = response.data.weather[0].description;
+  humidity.innerText = response.data.main.humidity;
+  wind.innerText = Math.round(response.data.wind.speed);
 }
 
 // Getting current weather for position when pressing "Current" button
@@ -115,6 +105,8 @@ function fetchPositionData(position) {
 
 let currentPosition = document.querySelector("#current-button");
 currentPosition.addEventListener("click", getPosition);
+
+getWeatherData("Zürich");
 
 // Getting data for selected cities in city list on top
 function setCity(event) {
