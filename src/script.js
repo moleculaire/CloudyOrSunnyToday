@@ -1,18 +1,15 @@
-// Feature 1 display the current date and time
-
-let currentDate = new Date();
-
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-
+// Display current date and time
 function formatDateTime(date) {
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
   let day = days[date.getDay()];
   let hours = date.getHours();
   let minutes = date.getMinutes();
@@ -56,14 +53,16 @@ function searchCity(event) {
 let searchForm = document.querySelector("#search-city-form");
 searchForm.addEventListener("submit", searchCity);
 
-// Getting weather Data from Open Weather with Axios
+// Function for getting weather Data from Open Weather with Axios
+
 function getWeatherData(city) {
   let apiKey = "d625786419899cc1afc3fc85979c669b";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric`;
   axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemperature);
 }
 
-// Getting city and temperature from response and replacing values in HTML
+// Function for getting city and temperature from response and replacing values in HTML
+
 function showTemperature(response) {
   //console.log(response); => check what we get back
   // selecting Elements from HTML
