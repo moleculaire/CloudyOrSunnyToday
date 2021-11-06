@@ -38,7 +38,7 @@
 
       <div class="card">
         <div class="card-body">
-          <!--Container for the display of locations, search and temperature--->
+          <!--Start Container Location & Temperature section--->
 
           <div class="container location-temperature">
             <!--Cities list--->
@@ -91,59 +91,53 @@
               </div>
             </form>
 
-            <!--Information on current location, day and current weather details--->
+            <!-- City & Temperature section--->
 
-            <div class="row mt-4">
-              <div class="col-sm-5 col-md-7 location-and-weather">
-                <div class="row">
-                  <div class="col-sm">
-                    <h1 id="show-city">Dübendorf</h1>
-                    <span class="align-bottom" id="show-country"
-                      ><h2>, Switzerland</h2></span
+            <div class="location-and-weather">
+              <!-- City / Date --->
+
+              <h1 id="show-city">Dübendorf</h1>
+              <span class="align-bottom" id="show-country"
+                ><h2>, Switzerland</h2></span
+              >
+              <ul>
+                <li>
+                  Last search:
+                  <span id="show-day-time">Wednesday, 10:31</span>
+                </li>
+              </ul>
+
+              <!-- weather details --->
+
+              <div class="row mt-3">
+                <div class="col-6">
+                  <div class="clearfix">
+                    <div
+                      class="current-degrees float-left"
+                      id="current-degrees"
                     >
+                      11°
+                    </div>
+                    <div class="float-left units">
+                      <a href="#" id="celsius-link" class="active">°C</a> |
+                      <a href="#" id="fahrenheit-link">°F</a> &nbsp;
+                      <h2 id="weather-description">Partly Cloudy</h2>
+                    </div>
                   </div>
+                  <ul>
+                    <li>Humidity: <span id="humidity"></span>%</li>
+                    <li>Wind: <span id="wind-speed"></span>km/h</li>
+                  </ul>
                 </div>
-
-                <div class="row">
-                  <div class="col">
-                    <h2 id="show-day-time">Wednesday, 10:31</h2>
+                <div class="col-6">
+                  <div class="weather-icons-aligned">
+                    <img src="" alt="" id="icon" />
                   </div>
-                </div>
-
-                <div class="row mt-3">
-                  <div class="col">
-                    <span class="current-degrees" id="current-degrees"
-                      >11°</span
-                    >
-                    <small><a href="#" id="switch-temp">°C</a></small> &nbsp;
-                    <h2 id="weather-description">Partly Cloudy</h2>
-                  </div>
-                </div>
-
-                <small>
-                  <div class="row">
-                    <div class="col-md-4">Humidity:</div>
-                    <div class="col-md-8" id="humidity">7%</div>
-                  </div></small
-                >
-
-                <small
-                  ><div class="row">
-                    <div class="col-md-4">Wind:</div>
-                    <div class="col-md-8" id="wind-speed">5 km/h</div>
-                  </div></small
-                >
-              </div>
-
-              <div class="col mt-5 justify-self-center">
-                <div class="weather-icons-aligned">
-                  <i class="far fa-sun sun-icon overlay-sun main-icon"></i>
-                  <i
-                    class="fas fa-cloud cloud-icon overlay-cloud main-icon"
-                  ></i>
                 </div>
               </div>
             </div>
+
+            <!-- End container Location & Temperature section--->
           </div>
 
           <!--Container start with previsions for next 5 days--->

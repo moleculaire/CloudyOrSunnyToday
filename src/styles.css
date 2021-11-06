@@ -19,6 +19,18 @@ body {
     font-weight: 200;
   }
   
+  ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+    margin: 0;
+    padding: 0;  
+    font-size: 13px;   
+}
+
   a {
     text-decoration: none;
     color: #ffca7d;
@@ -28,16 +40,30 @@ body {
     color: #5a6275;
   }
   
+.location-and-weather {
+  margin-top: 20px;
+}
+
   .cities-list {
     font-size: smaller;
   }
   
+  .float-left {
+    float: left;
+  }
+
   .current-degrees {
     color: #5a6275;
     font-weight: 300;
     font-size: 40px;
+    margin-right: 5px;
   }
   
+.units {
+  position: relative;
+  top: 8px;
+}
+
   .sun-icon {
     color: #ffca7d;
     font-size: 30px;

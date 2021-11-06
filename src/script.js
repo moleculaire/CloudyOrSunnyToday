@@ -21,7 +21,7 @@ function formatDateTime(date) {
   }
 
   let fetchDateTime = document.querySelector("#show-day-time");
-  fetchDateTime.innerText = `${day}, ${hours}:${minutes}`;
+  fetchDateTime.innerText = `${day} ${hours}:${minutes}`;
 }
 
 formatDateTime(new Date());
