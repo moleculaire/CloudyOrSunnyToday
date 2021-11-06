@@ -33,7 +33,7 @@ li {
 
   a {
     text-decoration: none;
-    color: #ffca7d;
+    color: #EC6E4C;
   }
   
   a:hover {
@@ -65,7 +65,7 @@ li {
 }
 
   .sun-icon {
-    color: #ffca7d;
+    color: #EC6E4C;
     font-size: 30px;
   }
   
@@ -109,3 +109,12 @@ li {
     text-align: center;
   }
   
+  .units .active {
+    color: #5a6275;
+    cursor: default;
+    
+}
+
+.units .active:hover {
+    text-decoration: none;
+}

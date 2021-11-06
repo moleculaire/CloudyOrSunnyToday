@@ -23,26 +23,7 @@ function formatDateTime(date) {
 
 formatDateTime(new Date());
 
-// Feature 3 Display a fake temperature (i.e 17) in Celsius and add a link to convert it to Fahrenheit. When clicking on it, it should convert the temperature to Fahrenheit.
-/*
-function switchTemperature(event) {
-  event.preventDefault();
-  let link = document.querySelector("#switch-temp");
-  let currentCelsius = document.querySelector("#current-degrees");
-  if (link.innerText === "°C" && currentCelsius.innerText === "11°") {
-    link.innerText = "°F";
-    currentCelsius.innerText = "52°";
-  } else {
-    link.innerText = "°C";
-    currentCelsius.innerText = "11°";
-  }
-}
-
-let TemperatureLink = document.querySelector("#switch-temp");
-TemperatureLink.addEventListener("click", switchTemperature);
-*/
-
-// Get City input
+// Getting City input from Search Form
 function searchCity(event) {
   event.preventDefault();
   let citySubmission = document.querySelector("#city-input").value;
@@ -53,7 +34,7 @@ function searchCity(event) {
 let searchForm = document.querySelector("#search-city-form");
 searchForm.addEventListener("submit", searchCity);
 
-// Function for getting weather Data from Open Weather with Axios
+// Getting weather Data from Open Weather with Axios
 
 function getWeatherData(city) {
   let apiKey = "d625786419899cc1afc3fc85979c669b";
@@ -61,7 +42,7 @@ function getWeatherData(city) {
   axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemperature);
 }
 
-// Function for getting city and temperature from response and replacing values in HTML
+// Getting city and temperature from response and replacing values in HTML
 
 function showTemperature(response) {
   //console.log(response); => check what we get back
@@ -78,6 +59,9 @@ function showTemperature(response) {
   let intlName = new Intl.DisplayNames(["en"], { type: "region" });
   let fullCountry = intlName.of(response.data.sys.country);
   // end convert country abbrevation
+
+  // Storing Celsius Temperature for later Fahrenheit conversion
+  celsiusTemperature = response.data.main.temp;
 
   // replacing content with information from API on selected elements
   city.innerText = response.data.name;
@@ -111,6 +95,33 @@ function fetchPositionData(position) {
 let currentPosition = document.querySelector("#current-button");
 currentPosition.addEventListener("click", getPosition);
 
+// Handle Unit conversion
+
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let temperatureElement = document.querySelector("#current-degrees");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerText = Math.round(fahrenheitTemperature);
+}
+
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  let temperatureElement = document.querySelector("#current-degrees");
+  temperatureElement.innerText = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
 getWeatherData("Zürich");
 
 // Getting data for selected cities in city list on top
@@ -134,3 +145,22 @@ lugano.addEventListener("click", setCity);
 
 let basel = document.querySelector("#basel");
 basel.addEventListener("click", setCity);
+
+// Feature 3 Display a fake temperature (i.e 17) in Celsius and add a link to convert it to Fahrenheit. When clicking on it, it should convert the temperature to Fahrenheit.
+/*
+function switchTemperature(event) {
+  event.preventDefault();
+  let link = document.querySelector("#switch-temp");
+  let currentCelsius = document.querySelector("#current-degrees");
+  if (link.innerText === "°C" && currentCelsius.innerText === "11°") {
+    link.innerText = "°F";
+    currentCelsius.innerText = "52°";
+  } else {
+    link.innerText = "°C";
+    currentCelsius.innerText = "11°";
+  }
+}
+
+let TemperatureLink = document.querySelector("#switch-temp");
+TemperatureLink.addEventListener("click", switchTemperature);
+*/
