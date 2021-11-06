@@ -73,6 +73,7 @@ function showTemperature(response) {
   let description = document.querySelector("#weather-description");
   let humidity = document.querySelector("#humidity");
   let wind = document.querySelector("#wind-speed");
+  let weatherIcon = document.querySelector("#icon");
 
   // convert country abbreviation to full name passing in values from API
   let intlName = new Intl.DisplayNames(["en"], { type: "region" });
@@ -86,6 +87,11 @@ function showTemperature(response) {
   description.innerText = response.data.weather[0].description;
   humidity.innerText = response.data.main.humidity;
   wind.innerText = Math.round(response.data.wind.speed);
+  weatherIcon.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  weatherIcon.setAttribute("alt", response.data.weather[0].description);
 }
 
 // Getting current weather for position when pressing "Current" button
