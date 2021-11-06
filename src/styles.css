@@ -2,6 +2,7 @@ body {
     color: #5a6275;
     font-family: "Poppins", sans-serif;
     font-weight: 200;
+    background: rgba(236,110,76,0.35)
   }
   h1 {
     color: #5a6275;
@@ -39,7 +40,11 @@ li {
   a:hover {
     color: #5a6275;
   }
-  
+
+.card {
+  box-shadow: 0 0 1em #EC6E4C;
+}  
+
 .location-and-weather {
   margin-top: 20px;
 }
@@ -83,6 +88,11 @@ li {
     font-size: 30px;
   }
   
+  .weather-icon-big img {
+    height: 120px;
+    width: 120px;
+   
+  }
   .weather-icons-aligned {
     text-align: center;
   }
