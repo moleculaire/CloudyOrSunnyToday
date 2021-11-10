@@ -54,7 +54,6 @@ function getWeatherData(city) {
 // Getting city and temperature from response and replacing values in HTML
 
 function showTemperature(response) {
-  //console.log(response); => check what we get back
   // selecting Elements from HTML
   let city = document.querySelector("#show-city");
   let country = document.querySelector("#show-country");
@@ -189,42 +188,24 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 getWeatherData("Zürich");
 
 // Getting data for selected cities in city list on top
+
+function setCities() {
+  let cities = ["bern", "zurich", "geneve", "lugano", "basel"];
+  for (city of cities) {
+    document.querySelector(`#${city}`).addEventListener("click", setCity);
+  }
+}
+
+setCities();
+
 function setCity(event) {
   event.preventDefault();
   let defineCity = event.target.innerText;
   getWeatherData(defineCity);
 }
 
-let bern = document.querySelector("#bern");
-bern.addEventListener("click", setCity);
-
-let zurich = document.querySelector("#zurich");
-zurich.addEventListener("click", setCity);
-
-let geneve = document.querySelector("#geneve");
-geneve.addEventListener("click", setCity);
-
-let lugano = document.querySelector("#lugano");
-lugano.addEventListener("click", setCity);
-
-let basel = document.querySelector("#basel");
-basel.addEventListener("click", setCity);
-
-// Feature 3 Display a fake temperature (i.e 17) in Celsius and add a link to convert it to Fahrenheit. When clicking on it, it should convert the temperature to Fahrenheit.
 /*
-function switchTemperature(event) {
-  event.preventDefault();
-  let link = document.querySelector("#switch-temp");
-  let currentCelsius = document.querySelector("#current-degrees");
-  if (link.innerText === "°C" && currentCelsius.innerText === "11°") {
-    link.innerText = "°F";
-    currentCelsius.innerText = "52°";
-  } else {
-    link.innerText = "°C";
-    currentCelsius.innerText = "11°";
-  }
-}
-
-let TemperatureLink = document.querySelector("#switch-temp");
-TemperatureLink.addEventListener("click", switchTemperature);
+bern or zurich etc to result in let bern = document.querySelector("#bern");
+bern.addEventListener("click", setCity); 
+not having to replicate variables
 */
