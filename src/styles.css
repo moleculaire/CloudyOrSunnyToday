@@ -128,3 +128,24 @@ li {
 .units .active:hover {
     text-decoration: none;
 }
+
+.weather-forecast {
+  text-align: center;
+}
+
+.weather-forecast-date {
+  text-transform: capitalize;
+  opacity: 0.7;
+}
+
+.weather-forecast-temperatures {
+  font-size: smaller;
+}
+
+.weather-forecast-temperature-max {
+  color:#EC6E4C;
+}
+
+.weather-forecast-temperature-min {
+  opacity: 0.7;
+}

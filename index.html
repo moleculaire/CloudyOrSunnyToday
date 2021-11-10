@@ -96,7 +96,7 @@
             <div class="location-and-weather">
               <!-- City / Date --->
 
-              <h1 id="show-city">Dübendorf</h1>
+              <h1 class="align-bottom" id="show-city">Dübendorf</h1>
               <span class="align-bottom" id="show-country"
                 ><h2>, Switzerland</h2></span
               >
@@ -140,57 +140,19 @@
 
           <!--Container start with previsions for next 5 days--->
 
-          <div class="container mt-3">
+          <div class="container mt-5 weather-forecast">
             <div class="row">
-              <div class="col-12 col-md-2">
-                <div class="list-of-days">THU</div>
-                <div class="weather-icons-aligned">
-                  <i class="far fa-sun sun-icon overlay-sun"></i>
-                  <i class="fas fa-cloud cloud-icon overlay-cloud"></i>
+              <div class="col-2">
+                <div class="weather-forecast-date">THU</div>
+                <img
+                  src="https://openweathermap.org/img/wn/01d@2x.png"
+                  alt=""
+                  width="64px"
+                />
+                <div class="weather-forecast-temperatures">
+                  <span class="weather-forecast-temperature-max"> 18°</span>
+                  <span class="weather-forecast-temperature-min">12°</span>
                 </div>
-                <div class="list-of-temperature">14°</div>
-              </div>
-
-              <div class="col-12 col-md-2">
-                <div class="list-of-days">FRI</div>
-                <div class="weather-icons-aligned">
-                  <i class="fas fa-cloud-showers-heavy rain-icon"></i>
-                </div>
-                <div class="list-of-temperature">16°</div>
-              </div>
-
-              <div class="col-12 col-md-2">
-                <div class="list-of-days">SAT</div>
-                <div class="weather-icons-aligned">
-                  <i class="far fa-sun sun-icon overlay-sun"></i>
-                  <i class="fas fa-cloud cloud-icon overlay-cloud"></i>
-                </div>
-                <div class="list-of-temperature">16°</div>
-              </div>
-
-              <div class="col-12 col-md-2">
-                <div class="list-of-days">SUN</div>
-                <div class="weather-icons-aligned">
-                  <i class="far fa-sun sun-icon overlay-sun"></i>
-                  <i class="fas fa-cloud cloud-icon overlay-cloud"></i>
-                </div>
-                <div class="list-of-temperature">15°</div>
-              </div>
-
-              <div class="col-12 col-md-2">
-                <div class="list-of-days">MON</div>
-                <div class="weather-icons-aligned">
-                  <i class="far fa-sun sun-icon"></i>
-                </div>
-                <div class="list-of-temperature">16°</div>
-              </div>
-
-              <div class="col-12 col-md-2">
-                <div class="list-of-days">TUE</div>
-                <div class="weather-icons-aligned">
-                  <i class="far fa-sun sun-icon"></i>
-                </div>
-                <div class="list-of-temperature">18°</div>
               </div>
             </div>
           </div>
