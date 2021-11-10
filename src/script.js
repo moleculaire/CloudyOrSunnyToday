@@ -85,6 +85,13 @@ function showTemperature(response) {
   );
   weatherIcon.setAttribute("alt", response.data.weather[0].description);
   getForecastData(response.data.coord);
+  clearSearch();
+}
+
+// Formatting input field when search was performed
+
+function clearSearch() {
+  document.getElementById("city-input").value = "";
 }
 
 // Getting current weather for position when pressing "Current" button
