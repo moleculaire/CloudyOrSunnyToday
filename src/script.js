@@ -75,6 +75,7 @@ function showTemperature(response) {
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   weatherIcon.setAttribute("alt", response.data.weather[0].description);
+  getForecastData(response.data.coord);
 }
 
 // Getting current weather for position when pressing "Current" button
@@ -95,7 +96,16 @@ function fetchPositionData(position) {
 let currentPosition = document.querySelector("#current-button");
 currentPosition.addEventListener("click", getPosition);
 
+// Getting Forecast Coordinates out of the received WeatherData
+
+function getForecastData(coordinates) {
+  let apiKey = "d625786419899cc1afc3fc85979c669b";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
 // Display Forecast for the coming days
+
 function displayForecast() {
   let forecastElement = document.querySelector("#forecast");
 
@@ -151,7 +161,6 @@ let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
 getWeatherData("Zürich");
-displayForecast();
 
 // Getting data for selected cities in city list on top
 function setCity(event) {
