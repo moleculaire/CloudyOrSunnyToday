@@ -95,6 +95,34 @@ function fetchPositionData(position) {
 let currentPosition = document.querySelector("#current-button");
 currentPosition.addEventListener("click", getPosition);
 
+// Display Forecast for the coming days
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let days = ["Wen", "Thu", "Fri", "Sat", "Sun", "Mon"];
+
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-2">
+                <div class="weather-forecast-date">THU</div>
+                <img
+                  src="https://openweathermap.org/img/wn/01d@2x.png"
+                  alt=""
+                  width="64px"
+                />
+                <div class="weather-forecast-temperatures">
+                  <span class="weather-forecast-temperature-max"> 18°</span>
+                  <span class="weather-forecast-temperature-min">12°</span>
+                </div>
+              </div>
+            `;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 // Handle Unit conversion
 
 function displayFahrenheitTemperature(event) {
@@ -123,6 +151,7 @@ let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
 getWeatherData("Zürich");
+displayForecast();
 
 // Getting data for selected cities in city list on top
 function setCity(event) {
