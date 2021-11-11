@@ -68,46 +68,7 @@ li {
   position: relative;
   top: 8px;
 }
-
-  .sun-icon {
-    color: #EC6E4C;
-    font-size: 30px;
-  }
-  
-  .cloud-icon {
-    color: #939aa9;
-    font-size: 30px;
-  }
-  
-  .main-icon {
-    font-size: 80px;
-  }
-  
-  .rain-icon {
-    color: #939aa9;
-    font-size: 30px;
-  }
-  
-  .weather-icon-big img {
-    height: 120px;
-    width: 120px;
-   
-  }
-  .weather-icons-aligned {
-    text-align: center;
-  }
-  
-  .weather-icons-aligned .overlay-sun {
-    position: relative;
-    left: 15px;
-    top: -10px;
-  }
-  
-  .weather-icons-aligned .overlay-cloud {
-    position: relative;
-    left: -5px;
-  }
-  
+ 
   .list-of-days {
     margin-top: 25px;
     margin-bottom: 20px;

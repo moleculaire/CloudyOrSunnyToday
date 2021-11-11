@@ -1,4 +1,4 @@
-// Display current date and time in search section
+// --- Current date and time for search section --- //
 function formatDateTime(date) {
   let days = [
     "Sunday",
@@ -23,7 +23,7 @@ function formatDateTime(date) {
 
 formatDateTime(new Date());
 
-// Formatting Days for 6 days Forecast weather section
+// --- Formatting Days for 6 days Forecast section --- //
 
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
@@ -32,7 +32,7 @@ function formatDay(timestamp) {
   return days[day];
 }
 
-// Getting City input from Search Form
+// --- Getting City input from Search Form --- //
 function searchCity(event) {
   event.preventDefault();
   let citySubmission = document.querySelector("#city-input").value;
@@ -43,7 +43,7 @@ function searchCity(event) {
 let searchForm = document.querySelector("#search-city-form");
 searchForm.addEventListener("submit", searchCity);
 
-// Getting weather Data from Open Weather with Axios
+// --- Getting weather Data from City search from Open Weather with Axios --- //
 
 function getWeatherData(city) {
   let apiKey = "d625786419899cc1afc3fc85979c669b";
@@ -51,7 +51,7 @@ function getWeatherData(city) {
   axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemperature);
 }
 
-// Getting city and temperature from response and replacing values in HTML
+// --- Getting city and temperature data from response, replacing values in HTML --- //
 
 function showTemperature(response) {
   // selecting Elements from HTML
@@ -63,15 +63,15 @@ function showTemperature(response) {
   let wind = document.querySelector("#wind-speed");
   let weatherIcon = document.querySelector("#icon");
 
-  // convert country abbreviation to full name passing in values from API
+  // --- Convert country abbreviation to full name passing in values from API --- //
   let intlName = new Intl.DisplayNames(["en"], { type: "region" });
   let fullCountry = intlName.of(response.data.sys.country);
-  // end convert country abbrevation
+  // --- End convert country abbrevation --- //
 
-  // Storing Celsius Temperature for later Fahrenheit conversion
+  // --- Storing Celsius Temperature for later Fahrenheit conversion --- //
   celsiusTemperature = response.data.main.temp;
 
-  // replacing content with information from API on selected elements
+  // --- Replacing content with information from API on selected elements --- //
   city.innerText = response.data.name;
   country.innerText = `, ${fullCountry}`;
   temperature.innerText = Math.round(response.data.main.temp);
@@ -87,13 +87,13 @@ function showTemperature(response) {
   clearSearch();
 }
 
-// Formatting input field when search was performed
+// --- Reset input field when search was performed --- //
 
 function clearSearch() {
   document.getElementById("city-input").value = "";
 }
 
-// Getting current weather for position when pressing "Current" button
+// --- Getting current weather for position when pressing "Current" button --- //
 function getPosition(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(fetchPositionData);
@@ -111,7 +111,7 @@ function fetchPositionData(position) {
 let currentPosition = document.querySelector("#current-button");
 currentPosition.addEventListener("click", getPosition);
 
-// Getting Forecast Coordinates out of the received WeatherData
+// --- Getting Forecast from received WeatherData Coordinates --- //
 
 function getForecastData(coordinates) {
   let apiKey = "d625786419899cc1afc3fc85979c669b";
@@ -119,7 +119,7 @@ function getForecastData(coordinates) {
   axios.get(apiUrl).then(displayForecast);
 }
 
-// Display Forecast for the coming days
+// --- Display Forecast for the coming days --- //
 
 function displayForecast(response) {
   let forecast = response.data.daily;
@@ -158,7 +158,7 @@ function displayForecast(response) {
   forecastElement.innerHTML = forecastHTML;
 }
 
-// Handle Unit conversion
+// --- Handle Unit conversion Celsius to Fahrenheit --- //
 
 function displayFahrenheitTemperature(event) {
   event.preventDefault();
@@ -187,7 +187,7 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
 getWeatherData("Zürich");
 
-// Getting data for selected cities in city list on top
+// --- Getting data for selected cities in city list on top --- //
 
 function setCities() {
   let cities = ["bern", "zurich", "geneve", "lugano", "basel"];
@@ -207,5 +207,5 @@ function setCity(event) {
 /*
 bern or zurich etc to result in let bern = document.querySelector("#bern");
 bern.addEventListener("click", setCity); 
-not having to replicate variables
+without having to replicate variables
 */
